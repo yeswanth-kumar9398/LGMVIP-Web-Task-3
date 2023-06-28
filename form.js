@@ -1,9 +1,7 @@
 const form = document.getElementById('registrationForm');
 const usersTableBody = document.getElementById('usersTableBody');
-
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', function (event){
     event.preventDefault();
-
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
@@ -11,12 +9,9 @@ form.addEventListener('submit', function (event) {
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender').value;
     const skills = document.getElementById('skills').value;
-
     const reader = new FileReader();
-
-    reader.onload = function () {
+    reader.onload = function (){
         const imageSrc = reader.result;
-
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
   <td>${name}</td>
@@ -29,9 +24,6 @@ form.addEventListener('submit', function (event) {
 `;
         usersTableBody.appendChild(newRow);
     };
-
     reader.readAsDataURL(image);
-
-    // Clear form inputs
     form.reset();
 });
